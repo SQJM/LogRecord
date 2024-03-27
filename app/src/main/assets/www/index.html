@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./Icon.png" type="image/x-icon" />
+    <title>LogRecord</title>
+    <link rel="stylesheet" href="./Lib/WebGUIPro/WebGUIPro.css" />
+    <link rel="stylesheet" href="./main.css" />
+</head>
+
+<body>
+    <div id="MainWindow">
+        <div class="w-iframe" id="LogRecord_init_view"
+            style="position: fixed;  width: 100%; height: 100%; z-index: 999;">
+            <style class="Style">
+                * {
+                    -webkit-user-select: none;
+                    user-select: none;
+                    cursor: context-menu;
+                }
+
+                * {
+                    overflow: hidden;
+                }
+
+                #widget_initLoading_Content {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+                }
+
+                #widget_initLoading_Content>img {
+                    width: 30%;
+                    min-width: 100px;
+                    max-width: 150px;
+                    margin-top: 20%;
+                }
+
+                #widget_initLoading_Content>p {
+                    margin-top: 30px;
+                    font-size: 28px;
+                    text-shadow: 0 0 2px #333333af;
+                }
+
+                #widget_initLoading_Content>span {
+                    position: fixed;
+                    bottom: 0;
+                    margin-bottom: 10px;
+                    color: #535353;
+                    text-shadow: 0 0 2px #333333af;
+                }
+            </style>
+            <div class="Content" id="widget_initLoading_Content" style="overflow: hidden">
+                <img src="./Icon.png">
+                <p>LogRecord</p>
+                <span>2023 @ SQJM</span>
+            </div>
+        </div>
+        <div id="LogRecord_View">
+            <div class="LogRecord_Top_Logo">Record<span><i id="log_is_saved" class="material-icons">&#xe8e6;</i></span>
+            </div>
+            <div class="LogRecord_Center_Content w-stacked-widget">
+                <div class="w-stacked log" w-stacked-index="0" select>
+                    <div class="LogRecord_Log_Tool">
+                        <i title="下拉" style="color: #333;">&#xe313;</i>
+                        <i title="保存" style="color: #453534;">&#xe161;</i>
+                        <i title="选择" style="color: #93ff59;">&#xe660;</i>
+                        <i title="f(x)" style="color: #795548;">&#xeae8;</i>
+                        <i title="便捷指令" style="color: #9c27b0;">&#xf1b7;</i>
+                        <i title="撤销" style="color: #bef5ff;">&#xe166;</i>
+                        <i title="恢复" style="color: #bef5ff;">&#xe15a;</i>
+                        <i title="样式" style="color: #4bb2c4;">&#xf8f0;</i>
+                        <i title="添加行" rotate90 style="color: #4caf50;">&#xe089;</i>
+                        <i title="添加列" style="color: #4caf50;">&#xe089;</i>
+                        <i title="插入列" rotate90 style="color: #4caf50;">&#xe23e;</i>
+                        <i title="插入行" style="color: #4caf50;">&#xe23e;</i>
+                        <i title="编辑" style="color: #6a8a52;">&#xe3c9;</i>
+                        <i title="编辑其他日志" style="color: #d0ae69;">&#xe8eb;</i>
+                        <i title="新建日志" style="color: #f5deaf;">&#xe39d;</i>
+                        <i title="选择列" style="color: #6f93a5;">&#xea16;</i>
+                        <i title="选择行" rotate90 style="color: #6f93a5;">&#xea16;</i>
+                        <i title="全选" rotate90 style="color: #a7ddf8;">&#xe162;</i>
+                        <i title="剪贴" style="color: #617ece;">&#xe14e;</i>
+                        <i title="复制" style="color: #617ece;">&#xe3e0;</i>
+                        <i title="粘贴" style="color: #617ece;">&#xe14f;</i>
+                        <i title="删除行或者列" style="color: #ff5722;">&#xe909;</i>
+                        <i title="筛选" style="color: #ff9800;">&#xef4f;</i>
+                        <i title="切换全屏模式编辑" style="color: #a8e2ff;">&#xe3c5;</i>
+                        <i title="指令" style="color: #03a9f4;">&#xead3;</i>
+                        <i title="删除当前日志" style="color: red">&#xe872;</i>
+                        <i title="帮助" style="color: #8bc34a;">&#xe8fd;</i>
+                    </div>
+                    <div class="Log_data">
+                        <a class="w-link-button name"></a>
+                        <p class="allsize">
+                            <span class="title">行列</span>
+                            <span class="row"></span>
+                            <span>:</span>
+                            <span class="column"></span>
+                        </p>
+                        <p class="nowcell">
+                            <span class="title">当前</span>
+                            <span class="row"></span>
+                            <span>:</span>
+                            <span class="column"></span>
+                            <span class="column-num"></span>
+                        </p>
+                    </div>
+                    <div class="LogRecord_Log_table">
+                        <div class="box">
+                            <table class="w-table">
+                                <thead class="w-head">
+                                    <tr class="w-title">
+                                        <th class="w-select"><span><i class="material-icons">&#xe1c8;</i></span></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="w-content"> </tbody>
+                            </table>
+                        </div>
+                        <style class="LogRecord_Log_view_scale_style"></style>
+                    </div>
+                    <div class="LogRecord_Log_view_scale">
+                        <i class="add">&#xe145;</i>
+                        <i class="remove">&#xe15b;</i>
+                        <i class="reset">&#xe5d0;</i>
+                    </div>
+                </div>
+                <div class="w-stacked set" w-stacked-index="1">
+                    <div class="set w-vertical-layout">
+                        <p style="margin-top: 0">设置</p>
+                        <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe161;</i>
+                                <span class="w-text">自动保存日志</span>
+                            </div>
+                            <div class="right">
+                                <div class="w-switch-button" id="自动保存日志">
+                                    <input class="w-checkbox-button" type="checkbox">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe040;</i>
+                                <span class="w-text">检查应用更新</span>
+                            </div>
+                            <div class="right">
+                                <div class="w-switch-button" id="检查应用更新">
+                                    <input class="w-checkbox-button" type="checkbox">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe05c;</i>
+                                <span class="w-text">右侧显示缩放按钮</span>
+                            </div>
+                            <div class="right">
+                                <div class="w-switch-button" id="右侧显示缩放按钮">
+                                    <input class="w-checkbox-button" type="checkbox">
+                                </div>
+                            </div>
+                        </div>
+
+                        <p style="display: none;">备份</p>
+                        <div class="w-item" style="display: none;">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe173;</i>
+                                <span class="w-text">开启备份</span>
+                            </div>
+                            <div class="right">
+                                <div class="w-switch-button" id="开启备份">
+                                    <input class="w-checkbox-button" type="checkbox" disabled>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-item backups-time-box" style="background-color: #00000000">
+                            <fieldset class="w-groupbox-container backups-time">
+                                <legend>备份时机</legend>
+                                <div class="w-vertical-layout">
+                                    <div>
+                                        <input class="w-checkbox-button" type="checkbox" id="backups-time-0">
+                                        <label>每次进入软件</label>
+                                    </div>
+                                    <div>
+                                        <input class="w-checkbox-button" type="checkbox" id="backups-time-1">
+                                        <label>一次性删除超过5行/列日志</label>
+                                    </div>
+                                    <div>
+                                        <input class="w-checkbox-button" type="checkbox" id="backups-time-2">
+                                        <label>使用清空使用日志功能时</label>
+                                    </div>
+                                    <div>
+                                        <input class="w-checkbox-button" type="checkbox" id="backups-time-3">
+                                        <label>使用导入日志功能时</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <p>操作</p>
+                        <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe1bd;</i>
+                                <button class="w-button" id="回收站管理">回收站管理</button>
+                            </div>
+                            <div class="right"> </div>
+                        </div>
+
+                        <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe875;</i>
+                                <button class="w-button" id="管理导出日志">管理导出日志</button>
+                            </div>
+                            <div class="right"> </div>
+                        </div>
+
+                        <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xef5f;</i>
+                                <button class="w-button" id="导出日志">导出日志</button>
+                            </div>
+                            <div class="right"> </div>
+                        </div>
+
+                        <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe8d7;</i>
+                                <button class="w-button" style="background-color: #ffca58;color: #3f3f3f;"
+                                    id="导入日志">导入日志</button>
+                            </div>
+                            <div class="right"> </div>
+                        </div>
+
+                        <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe16c;</i>
+                                <button class="w-button" id="清理缓存数据">清理缓存数据</button>
+                            </div>
+                            <div class="right"> </div>
+                        </div>
+
+                        <!-- <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe872;</i>
+                                <button class="w-button" style="background-color: red;color: aliceblue;"
+                                    id="清空所有日志">清空所有日志</button>
+                            </div>
+                            <div class="right"> </div>
+                        </div> -->
+
+                        <p>其他</p>
+                        <div class="w-item">
+                            <div class="left">
+                                <i class="material-icons w-icon">&#xe8fd;</i>
+                                <button class="w-button" style="background-color: #07d100;color: aliceblue;"
+                                    id="使用帮助">使用帮助</button>
+                            </div>
+                            <div class="right"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-stacked about" w-stacked-index="2">
+                    <div class="about">
+                        <div class="box1">
+                            <img src="./Icon.png">
+                            <div class="message">
+                                <p>LogRecord</p>
+                                <a class="LogRecord_Version_Update w-link-button" line
+                                    href="javascript:GetVersionUpdate();" w-value-entry>{{LogRecordVersion}}</a>
+                            </div>
+                        </div>
+                        <div class="box2">
+                            <span>2023 @ SQJM</span>
+                            <div>
+                                <a class="w-link-button"
+                                    href="javascript:About_FN_Use_Service_Agreement();">《使用服务协议》</a>
+                                <a class="w-link-button"
+                                    href="javascript:About_FN_Using_framework_protocols();">《使用框架协议》</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="LogRecord_Bottom_Bar w-horizontal-layout">
+                <i class="log material-icons" select text="日志">&#xe85d;</i>
+                <i class="set material-icons" text="设置">&#xe8b8;</i>
+                <i class="about material-icons" text="关于">&#xe88f;</i>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./Lib/Hammer/Hammer.js"></script>
+    <script type="text/javascript" src="./Plugin/ExternalControl.js"></script>
+    <script type="text/javascript" src="./CuteFox.js" async></script>
+    <script type="text/javascript" src="./Lib/WebUtilPro/WebUtilPro.js"></script>
+    <script type="text/javascript" src="./Lib/WebGUIPro/WebGUIPro.js"></script>
+    <script type="text/javascript" src="./var.js"></script>
+    <script type="text/javascript" src="./function.js"></script>
+    <script type="text/javascript" src="./init.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+</body>
+
+</html>

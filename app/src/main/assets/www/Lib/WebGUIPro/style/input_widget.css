@@ -1,0 +1,336 @@
+/* ================================== input widget ============================================= */
+
+.w-combo-box {
+    display: inline-flex;
+    flex-direction: column;
+    position: relative;
+    width: min-content;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.w-combo-box>.w-content {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 5px;
+    border: solid 1.5px #525252;
+    background-color: #fff;
+    box-shadow: 0 0 2px #3333332c;
+    transition: all 0.2s;
+    overflow: hidden;
+    justify-content: space-between;
+}
+
+.w-combo-box>.w-content:hover {
+    box-shadow: 0 0 2px #00000065;
+}
+
+.w-combo-box>.w-content>button>span {
+    font-size: 25px;
+}
+
+.w-combo-box>.w-content>.w-line-edit {
+    width: 100%;
+    border: none;
+    padding: 2px 3px 2px 3px;
+}
+
+.w-combo-box>.w-content>.w-line-edit>input {
+    min-width: 50px;
+    background-color: #00000000;
+}
+
+.w-combo-box>.w-list {
+    display: flex;
+    align-items: flex-start;
+    place-content: flex-start;
+    flex-flow: row;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #3333333c;
+    margin-top: 2px;
+}
+
+.w-combo-box>.w-list>div {
+    width: 100%;
+    transition: all 0.1s;
+}
+
+.w-combo-box>.w-list[state="show"]>div {
+    visibility: visible;
+    opacity: 1;
+}
+
+.w-combo-box>.w-list[state="hidde"]>div {
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+}
+
+/* ------------------------------------------- */
+
+.w-line-edit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 2.5px;
+    border-bottom: solid 2px #333;
+    background-color: #fff;
+}
+
+.w-line-edit>input[readonly] {
+    cursor: context-menu;
+}
+
+.w-line-edit>input[disabled] {
+    cursor: no-drop;
+}
+
+.w-line-edit[WClickParent] {
+    border-bottom: solid 2px #008acf;
+}
+
+.w-line-edit>input {
+    padding: 2px 4px 2px 4px;
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    outline: none;
+    border: none;
+}
+
+/* ------------------------------------------- */
+
+.w-text-edit {
+    white-space: nowrap;
+    outline: none;
+    border: none;
+    border-radius: 2.5px;
+    border-bottom: solid 2px #333;
+    background-color: #fff;
+    padding: 2px 4px 2px 4px;
+    display: inline-block;
+}
+
+.w-text-edit[readonly] {
+    cursor: context-menu;
+}
+
+.w-text-edit[WClick] {
+    border-bottom: solid 2px #008acf;
+}
+
+.w-text-edit[disabled] {
+    cursor: no-drop;
+}
+
+/* ------------------------------------------- */
+
+.w-progress-bar {
+    background-color: #fff;
+    display: inline-flex;
+    user-select: none;
+    -webkit-user-select: none;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    border-radius: 4px;
+    box-shadow: inset 0 0 3px #0000003b;
+    position: relative;
+    height: 10px;
+}
+
+.w-progress-bar[flipped] {
+    transform: scaleX(-1);
+}
+
+.w-progress-bar:has(:disabled) {
+    cursor: no-drop;
+    filter: grayscale(60%);
+}
+
+.w-progress-bar>.w-bar {
+    border-radius: 4px;
+    position: absolute;
+    display: flex;
+    background-color: #8ad8ff;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.w-progress-bar>.w-bar>.w-space {
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    transform: translate(50%, 0);
+    border-radius: 25px;
+    box-shadow: 0 0 2px #5353539d;
+    background-color: #ffffff;
+}
+
+.w-progress-bar>input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.w-progress-bar>.w-unit {
+    position: absolute;
+    transform: translate(150%, -25%);
+    right: 0;
+}
+
+/* ------------------------------------------- */
+
+.w-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.w-table td,
+.w-table th {
+    white-space: nowrap;
+    padding: 4px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    border-width: 1.25px;
+    border-style: solid;
+    border-color: #9b9b9b;
+    cursor: cell;
+}
+
+.w-table td {
+    max-width: 800px;
+    max-height: 800px;
+    overflow: auto;
+}
+
+.w-table td::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+.w-table td[current] {
+    outline-offset: -1.5px;
+    outline: solid 1.5px #cf7500;
+}
+
+.w-table td[contenteditable] {
+    cursor: text;
+    outline-offset: -1.5px;
+    outline: solid 1.5px #477bff;
+}
+
+.w-table td[select] {
+    color: #fff;
+    background-color: #9bcbff;
+}
+
+.w-table>.w-head {
+    position: relative;
+}
+
+.w-table>.w-head * {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.w-table>.w-head>.w-title>th {
+    background-color: #eaeaea;
+}
+
+.w-table>.w-head>.w-title>.w-select {
+    cursor: context-menu;
+}
+
+.w-table>.w-head>.w-title>.w-select>span>i {
+    color: #7f7f7f;
+    font-size: 24px;
+}
+
+.w-table>.w-head>.w-title>th {
+    cursor: pointer;
+}
+
+.w-table>.w-head>.w-title>.w-column-index>span {
+    min-width: 50px;
+}
+
+.w-table>.w-head>.w-title>th>span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    font-weight: 300;
+}
+
+.w-table>.w-content>.w-row>.w-row-index {
+    background-color: #eaeaea;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.w-table>.w-content>.w-row>.w-row-index {
+    cursor: pointer;
+}
+
+.w-table>.w-content>.w-row>.w-row-index>span {
+    user-select: none;
+    -webkit-user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    font-weight: 300;
+}
+
+/* ------------------------------------------- */
+
+.w-scroll-bar {
+    width: 10px;
+    height: 200px;
+    background-color: #fff;
+    display: inline-flex;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    box-shadow: inset 0 0 3px #0000003b;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.w-scroll-bar>.w-bar {
+    border-radius: 2px;
+    width: 100%;
+    min-width: 5%;
+    min-height: 5%;
+    height: 30%;
+    background-color: #8cd9ff;
+}
+
+.w-scroll-bar>.w-bar:active {
+    background-color: #9edfff;
+}
+
+.w-scroll-bar[horizontal] {
+    height: 10px;
+    width: 200px;
+}
+
+.w-scroll-bar[horizontal]>.w-bar {
+    height: 100%;
+    width: 30%;
+}
+
+/* ================================== input widget end ============================================= */

@@ -1,0 +1,298 @@
+/* ================================== button ============================================= */
+
+.w-button {
+    text-wrap: nowrap;
+    display: inline-flex;
+    align-items: center;
+    background-color: #f5faff;
+    border: solid 1.5px #e0e0e0;
+    border-radius: 5px;
+    transition: all 0.2s;
+    box-shadow: 0 0 2px #3333331c;
+    cursor: pointer;
+    padding: 3px;
+    padding-bottom: 3.5px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.w-button[WShortcutKey] {
+    border: solid 1.5px #65b4ff;
+}
+
+.w-button[disabled] {
+    cursor: no-drop;
+}
+
+.w-button[disabled]:hover {
+    background-color: #f5faff;
+    border: solid 1.5px #858484;
+}
+
+.w-button:hover {
+    background-color: #ebf4fd;
+    border: solid 1.5px #a0d4e8;
+}
+
+.w-button.hint {
+    border: solid 1.5px #a0d4e8;
+}
+
+.w-button[disabled].hint {
+    background-color: #f5faff;
+    border: solid 1.5px #858484;
+}
+
+.w-button:active {
+    transition: none;
+    background-color: #e0f0ff;
+}
+
+/* ------------------------------------------- */
+
+.w-img-button {
+    display: inline-flex;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    user-select: none;
+    -webkit-user-select: none;
+    position: relative;
+}
+
+.w-img-button img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+}
+
+.w-img-button[disabled] {
+    cursor: no-drop;
+}
+
+/* 当按钮处于normal状态时显示normal状态的图片 */
+.w-img-button:not(:hover):not(:active):not([disabled]) img.w-normal {
+    opacity: 1;
+}
+
+/* 当按钮处于hover状态时显示hover状态的图片，并将normal状态的图片透明度设置为0 */
+.w-img-button:hover:not(:active):not([disabled]) img.w-hover {
+    opacity: 1;
+}
+
+.w-img-button:hover:not(:active):not([disabled]) img.w-normal {
+    opacity: 0;
+}
+
+/* 当按钮处于active状态时显示active状态的图片 */
+.w-img-button:active:not([disabled]) img.w-active {
+    opacity: 1;
+}
+
+.w-img-button:active:not([disabled]) img.w-normal {
+    opacity: 0;
+}
+
+/* 当按钮处于disabled状态时显示disabled状态的图片 */
+.w-img-button[disabled] img.w-disabled {
+    opacity: 1;
+}
+
+.w-img-button[disabled] img.w-normal {
+    opacity: 0;
+}
+
+/* ------------------------------------------- */
+
+.w-bool-button {
+    display: inline-flex;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.w-bool-button[disabled] {
+    cursor: no-drop;
+}
+
+.w-bool-button[pattern="img"]>.text {
+    display: none;
+}
+
+.w-bool-button[pattern="text"]>.img {
+    display: none;
+}
+
+.w-bool-button[pattern="img"]>.img {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.w-bool-button[pattern="text"]>.text {
+    display: none;
+}
+
+.w-bool-button[pattern="img"][state="false"]>.img.false {
+    display: block;
+}
+
+.w-bool-button[pattern="img"][state="true"]>.img.true {
+    display: block;
+}
+
+.w-bool-button[pattern="text"][state="false"]>.text.false {
+    display: block;
+}
+
+.w-bool-button[pattern="text"][state="true"]>.text.true {
+    display: block;
+}
+
+/* ------------------------------------------- */
+
+.w-checkbox-button {
+    display: inline-flex;
+    width: 15px;
+    height: 15px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.w-checkbox-button[disabled] {
+    cursor: no-drop;
+}
+
+/* ------------------------------------------- */
+
+.w-radio-button {
+    display: inline-flex;
+    width: 15px;
+    height: 15px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.w-radio-button[disabled] {
+    cursor: no-drop;
+}
+
+/* ------------------------------------------- */
+
+.w-link-button {
+    text-decoration: none;
+    color: #00446c;
+    display: inline-flex;
+    cursor: pointer;
+    transition: color 0.2s;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.w-link-button[line] {
+    text-decoration: underline;
+}
+
+.w-link-button[disabled] {
+    cursor: no-drop;
+}
+
+.w-link-button[disabled]:hover {
+    color: #00446c;
+}
+
+.w-link-button:hover {
+    color: #148ace;
+}
+
+.w-link-button:active {
+    transition: none;
+    color: #009bf5;
+}
+
+/* ------------------------------------------- */
+
+.w-switch-button {
+    position: relative;
+    display: inline-flex;
+    background-color: aliceblue;
+    border-radius: 10px;
+    min-width: 40px;
+    min-height: 20px;
+    cursor: pointer;
+    box-shadow: inset 0 0 3px #0000003b;
+    user-select: none;
+    z-index: 0;
+}
+
+.w-switch-button:has(:disabled) {
+    cursor: no-drop;
+}
+
+.w-switch-button[fine] {
+    min-height: 15px;
+}
+
+.w-switch-button>input[type="checkbox"] {
+    display: none;
+}
+
+.w-switch-button::before {
+    content: "_";
+    color: #00000000;
+    display: block;
+    z-index: -1;
+    border-radius: 10px;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #b7e3f8;
+    position: absolute;
+    transition: all 0.15s;
+}
+
+.w-switch-button::after {
+    content: "_";
+    color: #00000000;
+    display: block;
+    z-index: -1;
+    border-radius: 25px;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    position: absolute;
+    box-shadow: 0 0 2px #3333331a;
+    transition: all 0.15s;
+}
+
+.w-switch-button[fine]::after {
+    height: 130%;
+    top: -15%;
+    box-shadow: 0 2px 2px #3333330c;
+}
+
+.w-switch-button[state="true"]::before {
+    width: 100%;
+}
+
+.w-switch-button[state="true"]::after {
+    left: 50%;
+}
+
+/* ================================== button end ============================================= */

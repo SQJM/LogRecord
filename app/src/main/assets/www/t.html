@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="shortcut icon" href="./Icon.png" type="image/x-icon" />
+    <title>t</title>
+    <link rel="stylesheet" href="./Lib/WebGUIPro/WebGUIPro.css" />
+    <style>
+        ::selection {
+            background-color: #aaffff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="MainWindow">
+        <p class="w-lable">12324</p>
+        <div class="w-vertical-layout">
+            <p class="w-lable">12324</p>
+            <p class="w-lable">12324</p>
+        </div>
+        <div class="w-horizontal-layout">
+            <p class="w-lable">12324</p>
+            <p class="w-lable">12324</p>
+        </div>
+
+        <button class="w-button">btnnnnnnnnnnnn</button>
+        <button class="w-button" wstyle="hint">btnnnnnnnnnnnn</button>
+        <button class="w-button" disabled>btnnnnnnnnnnnn</button>
+        <button class="w-button" wstyle="hint" disabled>btnnnnnnnnnnnn</button>
+        <a href="#" class="w-link-button" disabled>btnnnnnnnnnnnn</a>
+        <a href="#" class="w-link-button" line>btnnnnnnnnnnnn</a>
+        <input class="w-checkbox-button" type="checkbox">
+        <input class="w-radio-button" type="radio">
+        <a href="#" class="w-link-button">btnnnnnnnnnnnn</a>
+
+        <div class="w-list-widget">
+            <div class="w-item">
+                <img class="w-icon" src="./Icon.png">
+                <span class="w-text">1234</span>
+            </div>
+            <div class="w-item" disabled>
+                <span class="w-text">1234</span>
+            </div>
+            <div class="w-item" select>
+                <img class="w-icon" src="./Icon.png">
+                <span class="w-text">1235555555555554</span>
+            </div>
+            <div class="w-item">
+                <span class="w-text">1234</span>
+            </div>
+            <div class="w-item">
+                <span class="w-text">1234</span>
+            </div>
+            <div class="w-item">
+                <span class="w-text">1234</span>
+            </div>
+        </div>
+
+        <fieldset class="w-groupbox-container">
+            <legend>Choose your favorite monster</legend>
+
+            <input type="radio" id="kraken" name="monster" value="K" />
+            <label for="kraken">Kraken</label><br />
+
+            <input type="radio" id="sasquatch" name="monster" value="S" />
+            <label for="sasquatch">Sasquatch</label><br />
+
+            <input type="radio" id="mothman" name="monster" value="M" />
+            <label for="mothman">Mothman</label>
+        </fieldset>
+
+        <div class="w-widget">
+            <p class="w-lable">12324</p>
+            <p class="w-lable">12324</p>
+        </div>
+
+        <div class="w-tab-widget">
+            <div class="w-bar">
+                <span class="w-tab-title" w-tab-index="0" delete>123</span>
+                <span class="w-tab-title" w-tab-index="1" delete disabled>123</span>
+                <span class="w-tab-title" w-tab-index="2" select>123</span>
+                <span class="w-tab-title" w-tab-index="3">123</span>
+                <span class="w-tab-title" w-tab-index="4" delete>15423</span>
+            </div>
+            <div class="w-content"></div>
+            <div class="w-tabs">
+                <div class="w-tab" w-tab="0">0</div>
+                <div class="w-tab" w-tab="1">1</div>
+                <div class="w-tab" w-tab="2">2</div>
+                <div class="w-tab" w-tab="3">3333333333333333333333333333333333333333333333333333333333333333333333333
+                </div>
+                <div class="w-tab" w-tab="4">4</div>
+            </div>
+        </div>
+
+        <div class="w-tab-widget" reverse>
+            <div class="w-bar">
+                <span class="w-tab-title" w-tab-index="0" delete>123</span>
+                <span class="w-tab-title" w-tab-index="1" delete disabled>123</span>
+                <span class="w-tab-title" w-tab-index="2" select>123</span>
+                <span class="w-tab-title" w-tab-index="3">123</span>
+                <span class="w-tab-title" w-tab-index="4" delete>15423</span>
+            </div>
+            <div class="w-content"></div>
+            <div class="w-tabs">
+                <div class="w-tab" w-tab="0">0</div>
+                <div class="w-tab" w-tab="1">1</div>
+                <div class="w-tab" w-tab="2">2</div>
+                <div class="w-tab" w-tab="3">3333333333333333333333333333333333333333333333333333333333333333333333333
+                </div>
+                <div class="w-tab" w-tab="4">4</div>
+            </div>
+        </div>
+
+        <div class="w-stacked-widget">
+            <div class="w-stacked" w-stacked-index="0" select>0</div>
+            <div class="w-stacked" w-stacked-index="1">1</div>
+            <div class="w-stacked" w-stacked-index="2">2</div>
+            <div class="w-stacked" w-stacked-index="3">3</div>
+            <div class="w-stacked" w-stacked-index="4">4</div>
+        </div>
+
+        <div class="w-line-edit">
+            <input type="text">
+        </div>
+
+        <div class="w-line-read">
+            <input type="text" readonly>
+        </div>
+
+        <textarea class="w-text-edit"></textarea>
+
+        <textarea class="w-text-read" readonly></textarea>
+
+        <button class="w-bool-button" pattern="text" state="false">
+            <span class="text false material-icons">&#xe313;</span>
+            <span class="text true material-icons">&#xe316;</span>
+            <img draggable="false" class="img false" src="">
+            <img draggable="false" class="img true" src="">
+        </button>
+
+        <div class="w-combo-box">
+            <div class="w-content">
+                <div class="w-line-edit">
+                    <input type="text">
+                </div>
+                <button class="w-bool-button" pattern="text" state="false">
+                    <span class="text false material-icons">&#xe313;</span>
+                    <span class="text true material-icons">&#xe316;</span>
+                    <img draggable="false" class="img false" src="">
+                    <img draggable="false" class="img true" src="">
+                </button>
+            </div>
+            <div class="w-list" state="hidde">
+                <div class="w-list-widget" WEvent="click">
+                    <div class="w-item">
+                        <img class="w-icon" src="./Icon.png">
+                        <span class="w-text">1234</span>
+                    </div>
+                    <div class="w-item">
+                        <span class="w-text">1234</span>
+                    </div>
+                    <div class="w-item" select>
+                        <img class="w-icon" src="./Icon.png">
+                        <span class="w-text">1235555555555554</span>
+                    </div>
+                    <div class="w-item">
+                        <span class="w-text">1222334</span>
+                    </div>
+                    <div class="w-item">
+                        <span class="w-text">123234</span>
+                    </div>
+                    <div class="w-item">
+                        <span class="w-text">123224</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="w-img-button" disabled>
+            <img draggable="false" class="w-normal" src="./Assets/img/mc/amethyst_shard.png">
+            <img draggable="false" class="w-hover" src="./Assets/img/mc/apple.png">
+            <img draggable="false" class="w-active" src="./Assets/img/mc/apple_golden.png">
+            <img draggable="false" class="w-disabled" src="./Assets/img/mc/bed_blue.png">
+        </button>
+
+        <button class="w-img-button">
+            <img draggable="false" class="w-normal" src="./Assets/img/mc/amethyst_shard.png">
+            <img draggable="false" class="w-hover" src="./Assets/img/mc/apple.png">
+            <img draggable="false" class="w-active" src="./Assets/img/mc/apple_golden.png">
+            <img draggable="false" class="w-disabled" src="./Assets/img/mc/bed_blue.png">
+        </button>
+
+        <div class="w-switch-button" fine>
+            <input class="w-checkbox-button" type="checkbox">
+        </div>
+
+        <div class="w-switch-button">
+            <input class="w-checkbox-button" type="checkbox">
+        </div>
+
+        <div class="w-switch-button" WTitle="sd">
+            <input class="w-checkbox-button" type="checkbox" disabled>
+        </div>
+
+        <div class="w-note">
+            <i class="w-note-icon material-icons">&#xe002;</i>
+            <span class="w-note-content">1323</span>
+        </div>
+
+        <div class="w-progress-bar" style="width: 150px;">
+            <div class="w-bar"><span class="w-space"></span></div>
+            <span class="w-unit"></span>
+            <input type="range" />
+        </div>
+
+        <div class="w-progress-bar" style="width: 150px;" flipped>
+            <div class="w-bar"><span class="w-space"></span></div>
+            <span class="w-unit"></span>
+            <input type="range" />
+        </div>
+
+        <div>
+            <div class="w-horizontal-spacer"></div>
+            <div class="w-vertical-spacer"></div>
+        </div>
+
+        <p class="w-lable">12324</p>
+        <p class="w-lable">12324</p>
+        <p class="w-lable" WTitle="sd">12324</p>
+
+        <div class="w-drawer-widget" WDirection="right">
+            <div class="w-content">
+                fsfs
+            </div>
+        </div>
+
+        <table class="w-table">
+            <thead class="w-head">
+                <tr class="w-title">
+                    <th class="w-select"><span><i class="material-icons">&#xe1c8;</i></span></th>
+                    <th class="w-column-index"><span>A</span></th>
+                    <th class="w-column-index"><span>B</span></th>
+                    <th class="w-column-index"><span>C</span></th>
+                </tr>
+            </thead>
+            <tbody class="w-content">
+                <tr class="w-row" row="1">
+                    <td class="w-row-index"><span>1</span></td>
+                    <td w-column-index="A">12</td>
+                    <td w-column-index="B">12</td>
+                    <td w-column-index="C">12</td>
+                </tr>
+                <tr class="w-row" row="2">
+                    <td class="w-row-index"><span>2</span></td>
+                    <td w-column-index="A">12</td>
+                    <td w-column-index="B">12444</td>
+                    <td w-column-index="C">12</td>
+                </tr>
+                <tr class="w-row" row="3">
+                    <td class="w-row-index"><span>3</span></td>
+                    <td w-column-index="A">12</td>
+                    <td w-column-index="B">12444</td>
+                    <td w-column-index="C">12</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="w-iframe" src="./index"></div>
+
+        <div class="w-scroll-bar">
+            <div class="w-bar"></div>
+        </div>
+        <div class="w-scroll-bar" horizontal>
+            <div class="w-bar"></div>
+        </div>
+
+        <hr class="w-horizontal-line" />
+        <hr class="w-vertical-line" />
+
+        <div class="w-animation-widget" WAnimationName="WebGUIPro_animation_Loading_1" WShowTime="2000"
+            WShowModel="fullscreen"></div>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <div class="w-dialog">
+            <div class="w-box">
+                <p class="w-title">34353<i class="material-icons w-delete">&#xe5cd;</i></p>
+                <div class="w-content">54365</div>
+                <div class="w-btns">
+                    <button class="w-button">确定</button>
+                    <button class="w-button">取消</button>
+                    <button class="w-button">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="./Lib/WebUtilPro/WebUtilPro.js"></script>
+    <script type="text/javascript" src="./Lib/WebGUIPro/WebGUIPro.js"></script>
+    <script type="text/javascript" src="./Lib/WebGUIPro/Animation.js"></script>
+
+    <script id="Code" type="text/javascript">
+        const {
+            $,
+            _INIT_PAGE_WebUtilPro_
+        } = WebUtilPro();
+
+        function init_web() {
+            WebGUIPro.render("./Lib/WebGUIPro");
+        }
+
+        window.onload = function () {
+            _INIT_PAGE_WebUtilPro_(() => {
+                init_web();
+            });
+        };
+    </script>
+</body>
+
+</html>

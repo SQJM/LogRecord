@@ -1,0 +1,166 @@
+/* ================================== display widget ============================================= */
+
+.w-lable {
+    display: inline-block;
+    padding: 2px;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ------------------------------------------- */
+
+.w-animation-widget {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    opacity: 1;
+    scale: 1;
+}
+
+.w-animation-widget[WShowModel="fullscreen"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.w-animation-widget[WShowModel="default"] {}
+
+/* ------------------------------------------- */
+
+.w-text-read {
+    outline: none;
+    border: none;
+    outline: none;
+    border-radius: 2.5px;
+    border-bottom: solid 2px #333;
+    background-color: #fff;
+    padding: 2px;
+    display: inline-block;
+    cursor: context-menu;
+}
+
+.w-text-read[WClick] {
+    border-bottom: solid 2px #008acf;
+}
+
+/* ------------------------------------------- */
+
+.w-line-read {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    border-radius: 2.5px;
+    border-bottom: solid 2px #333;
+    background-color: #fff;
+}
+
+.w-line-read[WClickParent] {
+    border-bottom: solid 2px #008acf;
+}
+
+.w-line-read>input {
+    cursor: context-menu;
+    padding: 2px;
+    height: 100%;
+    width: 100%;
+    display: inline-flex;
+    outline: none;
+    border: none;
+}
+
+/* ------------------------------------------- */
+
+.w-note {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 10px;
+    padding-left: 15px;
+    border-left: solid 3.5px #333;
+    border-radius: 5px;
+    box-shadow: 0 0 1px #0000004a;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.w-note>.w-note-icon {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    width: 25px;
+    height: 25px;
+    color: currentColor;
+    font-size: 25px;
+}
+
+.w-note>.w-note-content {
+    margin-left: 15px;
+    text-shadow: 0 0 1px #00000084;
+}
+
+.w-note[color="error"] {
+    background-color: #ffbbbb;
+    border-left-color: red;
+    color: red;
+}
+
+.w-note[color="warning"] {
+    background-color: #fff6c2;
+    border-left-color: #ffd900;
+    color: #ffd900;
+}
+
+.w-note[color="info"] {
+    background-color: #c1f3ff;
+    border-left-color: #62e0ff;
+    color: #62e0ff;
+}
+
+.w-note[color="log"] {
+    background-color: #ffecc2;
+    border-left-color: #ffbe32;
+    color: #ffbe32;
+}
+
+.w-note[color="near"] {
+    background-color: #f8fee9;
+    border-left-color: #cdd3bd;
+    color: #cdd3bd;
+}
+
+/* ------------------------------------------- */
+
+.w-horizontal-line {
+    display: block;
+    border-radius: 2px;
+    border: none;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ------------------------------------------- */
+
+.w-vertical-line {
+    display: block;
+    border-radius: 2px;
+    border: none;
+    width: 2px;
+    height: 100%;
+    background-color: #333;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+/* ================================== display widget end ============================================= */

@@ -1,0 +1,420 @@
+i {
+    transition: all 0.2s;
+}
+
+i:active {
+    scale: 0.9;
+}
+
+*[rotate90] {
+    transform: rotate(90deg);
+}
+
+*[rotate180] {
+    transform: rotate(180deg);
+}
+
+*[rotate270] {
+    transform: rotate(270deg);
+}
+
+*[rotate360] {
+    transform: rotate(360deg);
+}
+
+@font-face {
+    font-family: "VictorMono-Medium";
+    src: url(./Assets/font/VictorMono-Medium/VictorMono-Medium.ttf);
+}
+
+* {
+    user-select: none;
+    -webkit-user-select: none;
+    font-family: "VictorMono-Medium", sans-serif;
+}
+
+/*-------------------------------------------------------*/
+
+#LogRecord_View {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    width: 100vw;
+    height: 100vh;
+}
+
+.LogRecord_Top_Logo {
+    z-index: 10;
+    box-shadow: 0 0 2px #333;
+    padding: 5px;
+    font-size: 26px;
+    width: 100%;
+    display: flex;
+    color: #f9fdff;
+    background-color: rgb(109, 211, 255);
+    text-shadow: 0 0 1px #dadada;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+#log_is_saved {
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+#log_is_saved[no] {
+    transition: all 0.3s;
+    opacity: 1;
+    color: red;
+}
+
+.LogRecord_Center_Content {
+    height: 100%;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+}
+
+/*-------------------------------------------------------*/
+
+.LogRecord_Center_Content>.log {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.LogRecord_Center_Content>.log>.Log_data {
+    gap: 10px;
+    padding: 2px;
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    align-items: center;
+    box-shadow: 0 0 2px #3333335e;
+}
+
+.LogRecord_Center_Content>.log>.Log_data * {
+    text-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.LogRecord_Center_Content>.log>.Log_data::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.LogRecord_Center_Content>.log>.Log_data>p {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 3px;
+}
+
+.LogRecord_Center_Content>.log>.Log_data>p>.title {
+    font-size: 14px;
+    margin-right: 2px;
+    border-radius: 3px;
+    border: solid 1px #3333335b;
+    padding: 1px 2px 2px 2px;
+}
+
+.LogRecord_Log_Tool {
+    flex-shrink: 0;
+    display: flex;
+    background-color: #d1d1d15c;
+    padding: 3px;
+    overflow: auto;
+    width: 100%;
+    gap: 3px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-height: 85px;
+    z-index: 5;
+    box-shadow: 0 0 2px #3333335e;
+    transition: all 0.2s;
+}
+
+.LogRecord_Log_Tool::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+.LogRecord_Log_Tool>i {
+    color: #575757;
+    font-style: normal;
+    font-family: "MaterialIcons", sans-serif;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    font-size: 35px;
+    border-radius: 5px;
+    box-shadow: 0 0 2px #33333354;
+}
+
+.LogRecord_Log_table {
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
+}
+
+.LogRecord_Log_table::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+}
+
+.LogRecord_Log_table>.box {
+    width: 100%;
+}
+
+.LogRecord_Log_table * {
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.LogRecord_Log_view_scale {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    right: 10px;
+    bottom: 100px;
+    background-color: #9e9e9e50;
+    border-radius: 5px;
+    padding: 2px;
+    opacity: .6;
+}
+
+.LogRecord_Log_view_scale>i {
+    font-size: 30px;
+    font-style: normal;
+    font-family: "MaterialIcons", sans-serif;
+}
+
+/*-------------------------------------------------------*/
+
+.LogRecord_Center_Content>.set {
+    width: 100%;
+    height: 100%;
+}
+
+.LogRecord_Center_Content>.set>.set {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    padding-top: 10px;
+    align-items: center
+}
+
+.LogRecord_Center_Content>.set>.set>.w-item {
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.2s;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 3px #5a5a5a3b;
+}
+
+.LogRecord_Center_Content>.set>.set>.w-item:hover {
+    background-color: #d5d5d5af;
+}
+
+.LogRecord_Center_Content>.set>.set>p {
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.LogRecord_Center_Content>.set>.set>.w-item>.left>span {
+    font-size: 18px;
+    font-weight: 300;
+    text-shadow: 0 0 1px #575757;
+}
+
+.LogRecord_Center_Content>.set>.set>.w-item>.left>button {
+    width: 100%;
+    justify-content: center
+}
+
+.LogRecord_Center_Content>.set>.set>.w-item>.left>button:active {
+    scale: 0.95;
+}
+
+.LogRecord_Center_Content>.set>.set>.w-item>.left>.w-icon {
+    font-size: 25px;
+    margin-right: 10px;
+}
+
+.LogRecord_Center_Content>.set>.set>.w-item>.left {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.LogRecord_Center_Content>.set>.set>.w-item>.right {
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.backups-time-box>.backups-time {
+    padding: 5px;
+    width: 100%;
+}
+
+.backups-time-box>.backups-time>div>div {
+    display: flex;
+    padding: 5px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+/*-------------------------------------------------------*/
+
+.LogRecord_Center_Content>.about {
+    width: 100%;
+    height: 100%;
+}
+
+.LogRecord_Center_Content>.about>.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+.LogRecord_Center_Content>.about>.about>.box1 {
+    display: flex;
+    margin-top: 20px;
+    gap: 5px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.LogRecord_Center_Content>.about>.about>.box1>img {
+    width: 20%;
+}
+
+.LogRecord_Center_Content>.about>.about>.box1>.message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    gap: 5px;
+}
+
+.LogRecord_Center_Content>.about>.about>.box1>.message>.LogRecord_Version_Update {
+    font-size: 14px;
+}
+
+.LogRecord_Center_Content>.about>.about>.box2 {
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/*-------------------------------------------------------*/
+
+.LogRecord_Bottom_Bar {
+    z-index: 10;
+    background-color: aliceblue;
+    box-shadow: 0 0 2px #3333335b;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 70px;
+    gap: 10%;
+}
+
+.LogRecord_Bottom_Bar>i {
+    color: #565656;
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-shadow: 0 0 2px #bcbcbc;
+}
+
+.LogRecord_Bottom_Bar>i[select] {
+    color: #65ccff;
+}
+
+.LogRecord_Bottom_Bar>i[select]::after {
+    content: attr(text);
+    display: block;
+    font-size: 12px;
+    color: #31baff;
+}
+
+/*-------------------------------------------------------*/
+
+.edit-other-log>.w-item>span {
+    font-size: 24px;
+}
+
+.edit-other-log>.w-item {
+    box-shadow: inset 0 0 2px #3333335e;
+}
+
+/*-------------------------------------------------------*/
+
+.out-log>.w-item>span {
+    font-size: 24px;
+}
+
+.out-log>.w-item {
+    box-shadow: inset 0 0 2px #3333335e;
+}
+
+/*-------------------------------------------------------*/
+
+.admin-out-log>.w-item>span {
+    font-size: 22px;
+}
+
+.admin-out-log>.w-item>.w-icon[src] {
+    width: 35px;
+    height: 35px;
+}
+
+.admin-out-log>.w-item {
+    box-shadow: inset 0 0 2px #3333335e;
+}
+
+/*-------------------------------------------------------*/
+
+.clear-cache-data>.w-item>span {
+    font-size: 24px;
+}
+
+.clear-cache-data>.w-item {
+    box-shadow: inset 0 0 2px #3333335e;
+}
+
+/*-------------------------------------------------------*/
+
+.recycle-admin>.w-item>span {
+    font-size: 24px;
+}
+
+.recycle-admin>.w-item {
+    box-shadow: inset 0 0 2px #3333335e;
+}
